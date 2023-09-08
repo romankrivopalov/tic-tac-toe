@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./Montserrat-Regular.woff'),
+       url('./Montserrat-Regular.woff2');
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Holtwood One SC';
+  src: url('./HoltwoodOneSC.woff'),
+       url('./HoltwoodOneSC.woff2');
+  font-style: normal;
+  font-weight: 900;
+}
