@@ -1,0 +1,5 @@
+.icon_type_zero {
+  -webkit-mask-image: url('../../../icons/icon-zero.svg');
+  mask-image: url('../../../icons/icon-zero.svg');
+  background-color: var(--color-system-blue);
+}

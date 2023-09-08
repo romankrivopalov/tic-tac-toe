@@ -3,3 +3,9 @@
 @import url('../vendor/variables.css');
 
 @import url('../blocks/page/page.css');
+
+@import url('../blocks/container/container.css');
+
+@import url('../blocks/icon/icon.css');
+@import url('../blocks/icon/_type/icon_type_cross.css');
+@import url('../blocks/icon/_type/icon_type_zero.css');
