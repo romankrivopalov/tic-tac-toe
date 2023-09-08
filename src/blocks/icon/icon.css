@@ -4,6 +4,7 @@
   height: 50px;
   background-color: #000;
   background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  background-size: contain;
 }

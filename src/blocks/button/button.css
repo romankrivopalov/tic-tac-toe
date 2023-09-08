@@ -1,0 +1,20 @@
+.button {
+  margin: 0;
+  padding: 16px 24px;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--color-system-white);
+  background-color: var(--color-system-gray);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: backgroundColor, .1s ease-in-out;
+}
+
+.button:first-child:hover {
+  background-color: var(--color-system-blue);
+}
+
+.button:last-child:hover {
+  background-color: var(--color-system-orange);
+}

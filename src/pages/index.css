@@ -9,3 +9,12 @@
 @import url('../blocks/icon/icon.css');
 @import url('../blocks/icon/_type/icon_type_cross.css');
 @import url('../blocks/icon/_type/icon_type_zero.css');
+@import url('../blocks/icon/_size/icon_size_xl.css');
+
+@import url('../blocks/start/start.css');
+@import url('../blocks/start/__icons/start__icons.css');
+@import url('../blocks/start/__subtitle/start__subtitle.css');
+@import url('../blocks/start/__title/start__title.css');
+@import url('../blocks/start/__wrapper/start__wrapper.css');
+
+@import url('../blocks/button/button.css');
