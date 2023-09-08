@@ -1,0 +1,10 @@
+.game__main {
+  margin: 0;
+  padding: 0 16px;
+  flex-grow: 1;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(3, 96px);
+  grid-template-rows: repeat(3, 96px);
+  list-style: none;
+}

@@ -1,0 +1,5 @@
+.game__field {
+  flex-grow: 0;
+  margin: 0;
+  padding: 0 16px;
+}
