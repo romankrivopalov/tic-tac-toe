@@ -19,46 +19,96 @@
     </div>
   </section>
   <section class="game">
-    <div class="game__rules">rules</div>
+    <div class="rules">
+      <p class="rules__label">rules</p>
+      <div class="rules__inner">
+        <span class="rules__title">Tic-Tac-Toe</span>
+        <p class="rules__text">
+          1. rulesfsfef for rules rulesfsfef for rules rulesfsfef for rules rulesfsfef for rules rulesfsfef for rules rulesfsfef for rules
+          rulesfsfef for rules rulesfsfef for rules rulesfsfef for rules rulesfsfef for rules rulesfsfef for rules rulesfsfef for rules
+        </p>
+      </div>
+    </div>
     <div class="game__container">
       <div class="game__field">
         <p class="game__field-title">player # 1</p>
         <ul class="game__step-list">
-          <li class="game__step game__step_type_players">1</li>
-          <li class="game__step game__step_type_players">2</li>
-          <li class="game__step game__step_type_players">3</li>
-          <li class="game__step game__step_type_players">4</li>
-          <li class="game__step game__step_type_players">5</li>
-          <li class="game__step game__step_type_players">6</li>
-          <li class="game__step game__step_type_players">7</li>
-          <li class="game__step game__step_type_players">8</li>
-          <li class="game__step game__step_type_players">9</li>
+          <li class="game__step game__step_type_zero" data-player="1" data-step="1"="">1</li>
+          <li class="game__step game__step_type_zero" data-player="1" data-step="2"="">2</li>
+          <li class="game__step game__step_type_zero" data-player="1" data-step="3"="">3</li>
+          <li class="game__step game__step_type_zero" data-player="1" data-step="4"="">4</li>
+          <li class="game__step game__step_type_zero" data-player="1" data-step="5"="">5</li>
+          <li class="game__step game__step_type_zero" data-player="1" data-step="6"="">6</li>
+          <li class="game__step game__step_type_zero" data-player="1" data-step="7"="">7</li>
+          <li class="game__step game__step_type_zero" data-player="1" data-step="8"="">8</li>
+          <li class="game__step game__step_type_zero" data-player="1" data-step="9"="">9</li>
         </ul>
       </div>
       <ul class="game__main">
-        <li class="game__item"></li>
-        <li class="game__item"></li>
-        <li class="game__item"></li>
-        <li class="game__item"></li>
-        <li class="game__item"></li>
-        <li class="game__item"></li>
-        <li class="game__item"></li>
-        <li class="game__item"></li>
-        <li class="game__item"></li>
+        <li class="game__item" data-item="1">
+          <div class="icon"></div>
+        </li>
+        <li class="game__item" data-item="2">
+          <div class="icon"></div>
+        </li>
+        <li class="game__item" data-item="3">
+          <div class="icon"></div>
+        </li>
+        <li class="game__item" data-item="4">
+          <div class="icon"></div>
+        </li>
+        <li class="game__item" data-item="5">
+          <div class="icon"></div>
+        </li>
+        <li class="game__item" data-item="6">
+          <div class="icon"></div>
+        </li>
+        <li class="game__item" data-item="7">
+          <div class="icon"></div>
+        </li>
+        <li class="game__item" data-item="8">
+          <div class="icon"></div>
+        </li>
+        <li class="game__item" data-item="9">
+          <div class="icon"></div>
+        </li>
       </ul>
       <div class="game__field">
         <p class="game__field-title">player # 2</p>
         <ul class="game__step-list">
-          <li class="game__step game__step_type_robot">1</li>
-          <li class="game__step game__step_type_robot">2</li>
-          <li class="game__step game__step_type_robot">3</li>
-          <li class="game__step game__step_type_robot">4</li>
-          <li class="game__step game__step_type_robot">5</li>
-          <li class="game__step game__step_type_robot">6</li>
-          <li class="game__step game__step_type_robot">7</li>
-          <li class="game__step game__step_type_robot">8</li>
-          <li class="game__step game__step_type_robot">9</li>
+          <li class="game__step game__step_type_cross" data-player="2" data-step="1">1</li>
+          <li class="game__step game__step_type_cross" data-player="2" data-step="2">2</li>
+          <li class="game__step game__step_type_cross" data-player="2" data-step="3">3</li>
+          <li class="game__step game__step_type_cross" data-player="2" data-step="4">4</li>
+          <li class="game__step game__step_type_cross" data-player="2" data-step="5">5</li>
+          <li class="game__step game__step_type_cross" data-player="2" data-step="6">6</li>
+          <li class="game__step game__step_type_cross" data-player="2" data-step="7">7</li>
+          <li class="game__step game__step_type_cross" data-player="2" data-step="8">8</li>
+          <li class="game__step game__step_type_cross" data-player="2" data-step="9">9</li>
         </ul>
+      </div>
+      <div class="game__mobile">
+        <div class="game__players">
+          <p class="game__mobile-title game__mobile-title_type_active">player # 1</p>
+          <p class="game__mobile-title">player # 2</p>
+        </div>
+        <ul class="game__step-list">
+          <li class="game__step" data-step="1">1</li>
+          <li class="game__step" data-step="2">2</li>
+          <li class="game__step" data-step="3">3</li>
+          <li class="game__step" data-step="4">4</li>
+          <li class="game__step" data-step="5">5</li>
+          <li class="game__step" data-step="6">6</li>
+          <li class="game__step" data-step="7">7</li>
+          <li class="game__step" data-step="8">8</li>
+          <li class="game__step" data-step="9">9</li>
+        </ul>
+      </div>
+      <div class="score">
+        <div class="score__round score__round_type_active">1</div>
+        <div class="score__round">2</div>
+        <div class="score__round">3</div>
+        <div class="score__round">4</div>
       </div>
     </div>
   </section>

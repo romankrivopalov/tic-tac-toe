@@ -1,0 +1,9 @@
+.game__step_type_inactive {
+  color: var(--color-system-gray-easy);
+  background-color: var(--color-system-gray);
+}
+
+.game__step_type_inactive:hover {
+  cursor: auto;
+  opacity: 1;
+}

@@ -1,0 +1,9 @@
+.game__step_type_zero {
+  color: var(--color-system-white);
+  background-color: var(--color-system-blue);
+  cursor: pointer;
+}
+
+.game__step_type_zero:hover {
+  opacity: .8;
+}

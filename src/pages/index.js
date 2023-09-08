@@ -1,17 +1,16 @@
 import './index.css';
 
-import Start from '../component/Start.js';
+import { startSetting } from '../utils/constants.js';
+import { gameplaySetting } from '../utils/constants.js';
+
+import Start from '../component/start.js';
 import Gameplay from '../component/Gameplay.js';
 
-const startSetting = {
-  startContainerSelector: '.start',
-  startContainerClassHide: 'start_hide',
-  gameContainerSelector: '.game',
-  gameContainerClassShow: 'game_show',
-  btnTwoPlayersSelector: '.button[data-type="btn-two-players"]',
-  btnVsRobotSelector: '.button[data-type="btn-vs-robot"]',
-}
-
-const start = new Start(startSetting);
+const gameplay = new Gameplay(gameplaySetting);
+const start = new Start(
+  startSetting,
+  gameplay.startGameWithPlayer,
+  gameplay.startGameWithRobot,
+);
 
 start.setEventListeners();

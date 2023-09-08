@@ -1,0 +1,13 @@
+.rules {
+  display: none;
+}
+
+@media screen and (min-width: 992px) {
+  .rules {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    display: block;
+    width: 80%;
+  }
+}

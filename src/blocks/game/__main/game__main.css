@@ -1,10 +1,18 @@
 .game__main {
-  margin: 0;
+  margin: 64px 0 0 0;
   padding: 0 16px;
-  flex-grow: 1;
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(3, 96px);
-  grid-template-rows: repeat(3, 96px);
+  grid-template-columns: repeat(3, 72px);
+  grid-template-rows: repeat(3, 72px);
   list-style: none;
+}
+
+@media screen and (min-width: 992px) {
+  .game__main {
+    flex-grow: 1;
+    margin: 0;
+    grid-template-columns: repeat(3, 96px);
+    grid-template-rows: repeat(3, 96px);
+  }
 }

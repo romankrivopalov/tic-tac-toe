@@ -1,0 +1,7 @@
+.game__mobile-title {
+  margin: 0;
+  padding: 0 0 32px 0;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--color-system-gray);
+}

@@ -1,10 +1,12 @@
 class Start {
-  constructor(setting) {
+  constructor(setting, handleStartGameWithPlayer, handleStartGameWithRobot) {
     this._setting = setting;
     this._startContainer = document.querySelector(this._setting.startContainerSelector);
     this._gameContainer = document.querySelector(this._setting.gameContainerSelector);
     this._btnTwoPlayers = document.querySelector(this._setting.btnTwoPlayersSelector);
     this._btnVsRobot = document.querySelector(this._setting.btnVsRobotSelector);
+    this._handleStartGameWithPlayer = handleStartGameWithPlayer;
+    this._handleStartGameWithRobot = handleStartGameWithRobot;
   }
 
   _toggleClasses = () => {
@@ -15,13 +17,13 @@ class Start {
 
   setEventListeners = () => {
     this._btnTwoPlayers.addEventListener('click', () => {
-      console.log('players');
-
       this._toggleClasses();
+
+      this._handleStartGameWithPlayer();
     })
 
     this._btnVsRobot.addEventListener('click', () => {
-      console.log('robots');
+      this._handleStartGameWithRobot();
     })
   }
 }
