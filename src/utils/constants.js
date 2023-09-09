@@ -16,3 +16,8 @@ export const gameplaySetting = {
   stepZeroClass: 'game__step_type_zero',
   stepCrossClass: 'game__step_type_cross',
 }
+
+export const scoreSetting = {
+  roundSelector: '.score__round',
+  roundActiveClass: 'score__round_type_active',
+}

@@ -1,5 +1,5 @@
 class Gameplay {
-  constructor(setting) {
+  constructor(setting, handleSetNextRound) {
     this._setting = setting;
     this._allSteps = document.querySelectorAll(this._setting.gameStepSelector);
     this._zeroSteps = document.querySelectorAll('game__step[data-player="1"]');
@@ -20,7 +20,30 @@ class Gameplay {
       [0, 4, 8],
       [2, 4, 6],
     ];
-    this._rounds = [null, null, null, null]
+    this._handleSetNextRound = handleSetNextRound;
+    this._lastWinner = 0;
+  }
+
+  _resetAllFields = () => {
+    this._allSteps.forEach(step => {
+      if (+step.getAttribute('data-player') === 1) {
+        step.classList.remove('game__step_type_inactive');
+        step.classList.add(this._setting.stepZeroClass);
+      }
+
+      if (+step.getAttribute('data-player') === 2) {
+        step.classList.remove('game__step_type_inactive');
+        step.classList.add(this._setting.stepCrossClass);
+      }
+    });
+
+    this._allItems.forEach(item => {
+      item.classList.remove('icon_type_zero', 'icon_type_cross', 'icon_size_m')
+    });
+
+    this._activePlayer = this._lastWinner === 2 ? 1 : 2;
+
+    this.startGameWithPlayer();
   }
 
   _toggleMobilePlayer = (step) => {
@@ -112,18 +135,21 @@ class Gameplay {
       // переключаем активного игрока
       this._toggleActivePlayer();
     } else {
-      // устанавливаем ноль, чтобы не обрабатывались слушатели
-      this._activePlayer = 3;
+      this._lastWinner = this._activePlayer;
+      this._handleSetNextRound(this._activePlayer);
+
+      // устанавливаем три, чтобы не обрабатывались слушатели
+      // this._activePlayer = 3;
+
+      this._resetAllFields();
     }
   }
 
   // отключить вариант у всех полей
   _disabledStep = (attr) => {
-    console.log(attr)
     this._allSteps.forEach(item => {
       if (+item.getAttribute(this._setting.stepData) === +attr) {
-        item.classList.remove(this._setting.stepZeroClass, this._setting.stepCrossClass, 'game__step_type_inactive')
-        item.textContent = '';
+        item.classList.remove(this._setting.stepZeroClass, this._setting.stepCrossClass);
       }
     })
   }
@@ -131,11 +157,14 @@ class Gameplay {
   _setEventListeners = () => {
     this._allSteps.forEach(step => step.addEventListener('click', () => {
       // при клике, проверяем атрибут поля соответсвует номеру активного игрока или нет,
+      console.log(this._activePlayer)
       if (+step.getAttribute('data-player') === this._activePlayer) {
-        const attr = step.getAttribute(this._setting.stepData);
+        if (step.classList.contains(this._setting.stepZeroClass) || step.classList.contains(this._setting.stepCrossClass)) {
+          const attr = step.getAttribute(this._setting.stepData);
 
-        this._disabledStep(attr);
-        this._setItem(attr);
+          this._disabledStep(attr);
+          this._setItem(attr);
+        }
       }
 
       // проверка содержит ли элемент атрибут для мобильного поля и активный игрок не 3
@@ -155,6 +184,12 @@ class Gameplay {
       // отключить неактивного игрока
       this._allSteps.forEach(step => {
         if (+step.getAttribute('data-player') === 2) {
+          step.classList.add('game__step_type_inactive');
+        }
+      })
+    } else {
+      this._allSteps.forEach(step => {
+        if (+step.getAttribute('data-player') === 1) {
           step.classList.add('game__step_type_inactive');
         }
       })

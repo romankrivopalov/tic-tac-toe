@@ -48,5 +48,5 @@
 @import url('../blocks/score/score.css');
 @import url('../blocks/score/__round/score__round.css');
 @import url('../blocks/score/__round/_type/score__round_type_active.css');
-@import url('../blocks/score/__round/_type/score__round_type_blue.css');
-@import url('../blocks/score/__round/_type/score__round_type_orange.css');
+@import url('../blocks/score/__round/_type/score__round_type_zero.css');
+@import url('../blocks/score/__round/_type/score__round_type_cross.css');
