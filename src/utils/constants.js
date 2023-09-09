@@ -9,7 +9,7 @@ export const startSetting = {
 
 export const gameplaySetting = {
   gameStepSelector: '.game__step',
-  gameItemSelector: '.game__item',
+  gameItemSelector: '.icon[data-item]',
   stepClassZero: 'game__step_type_zero',
   stepClassCross: 'game__step_type_cross',
   stepData: 'data-step',

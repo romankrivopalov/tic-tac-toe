@@ -1,6 +1,7 @@
 .game__field-title {
   margin: 0;
   padding: 0 0 24px;
+  color: var(--color-system-gray);
   font-size: 20px;
   line-height: 24px;
   text-align: center;

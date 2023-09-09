@@ -37,6 +37,7 @@
 @import url('../blocks/game/__mobile-title/_type/game__mobile-title_type_active.css');
 @import url('../blocks/game/__step-list/game__step-list.css');
 @import url('../blocks/game/__field-title/game__field-title.css');
+@import url('../blocks/game/__field-title/_type/game__field-title_type_active.css');
 @import url('../blocks/game/__step/game__step.css');
 @import url('../blocks/game/__step/_type/game__step_type_zero.css');
 @import url('../blocks/game/__step/_type/game__step_type_cross.css');

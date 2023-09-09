@@ -12,6 +12,7 @@
   .game__main {
     flex-grow: 1;
     margin: 0;
+    padding: 0;
     grid-template-columns: repeat(3, 96px);
     grid-template-rows: repeat(3, 96px);
   }

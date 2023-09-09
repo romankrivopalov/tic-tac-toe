@@ -5,19 +5,22 @@ class Gameplay {
     this._zeroSteps = document.querySelectorAll('game__step[data-player="1"]');
     this._allItems = document.querySelectorAll(this._setting.gameItemSelector);
     this._activePlayer = 1;
+    this._playerTitleZero = document.querySelector('#player-zero');
     this._playerMobileTitleZero = document.querySelector('#mobile-player-zero');
+    this._playerTitleCross = document.querySelector('#player-cross');
     this._playerMobileTitleCross = document.querySelector('#mobile-player-cross');
-  }
-
-  // установить фигуру
-  _setItem = (attr) => {
-    this._allItems.forEach(item => {
-      if (+item.getAttribute('data-item') === +attr) {
-        this._activePlayer === 1
-          ? item.querySelector('.icon').classList.add('icon_type_cross', 'icon_size_m')
-          : item.querySelector('.icon').classList.add('icon_type_zero', 'icon_size_m')
-      }
-    });
+    this._count = 0;
+    this._winCombo = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
+    ];
+    this._rounds = [null, null, null, null]
   }
 
   _toggleMobilePlayer = (step) => {
@@ -40,12 +43,13 @@ class Gameplay {
         if (+step.getAttribute('data-player') === 2) {
           step.classList.add('game__step_type_inactive');
 
-          // переключить лейбл активного игрока на мобильной версии
+          // переключить лейбл активного игрока
+          this._playerTitleZero.classList.add('game__field-title_type_active');
           this._playerMobileTitleZero.classList.add('game__mobile-title_type_active');
         } else {
           step.classList.remove('game__step_type_inactive');
 
-          // переключить лейбл активного игрока на мобильной версии
+          this._playerTitleCross.classList.remove('game__field-title_type_active');
           this._playerMobileTitleCross.classList.remove('game__mobile-title_type_active');
         }
 
@@ -58,12 +62,12 @@ class Gameplay {
         if (+step.getAttribute('data-player') === 1) {
           step.classList.add('game__step_type_inactive');
 
-          // переключить лейбл активного игрока на мобильной версии
+          this._playerTitleZero.classList.remove('game__field-title_type_active');
           this._playerMobileTitleZero.classList.remove('game__mobile-title_type_active');
         } else {
           step.classList.remove('game__step_type_inactive');
 
-          // переключить лейбл активного игрока на мобильной версии
+          this._playerTitleCross.classList.add('game__field-title_type_active');
           this._playerMobileTitleCross.classList.add('game__mobile-title_type_active');
         }
 
@@ -74,24 +78,68 @@ class Gameplay {
     }
   }
 
+  _checkWinner = () => {
+    for (let i = 0; i < this._winCombo.length; i++) {
+      if (
+        this._allItems[this._winCombo[i][0]].classList.contains('icon_type_zero') &&
+        this._allItems[this._winCombo[i][1]].classList.contains('icon_type_zero') &&
+        this._allItems[this._winCombo[i][2]].classList.contains('icon_type_zero')
+      ) {
+        return true
+      }
+
+      if (
+        this._allItems[this._winCombo[i][0]].classList.contains('icon_type_cross') &&
+        this._allItems[this._winCombo[i][1]].classList.contains('icon_type_cross') &&
+        this._allItems[this._winCombo[i][2]].classList.contains('icon_type_cross')
+      ) {
+        return true
+      }
+    }
+  }
+
+  // установить фигуру
+  _setItem = (attr) => {
+    this._allItems.forEach(item => {
+      if (+item.getAttribute('data-item') === +attr) {
+        this._activePlayer === 2
+          ? item.classList.add('icon_type_cross', 'icon_size_m')
+          : item.classList.add('icon_type_zero', 'icon_size_m')
+      }
+    });
+
+    if (!this._checkWinner()) {
+      // переключаем активного игрока
+      this._toggleActivePlayer();
+    } else {
+      // устанавливаем ноль, чтобы не обрабатывались слушатели
+      this._activePlayer = 3;
+    }
+  }
+
   // отключить вариант у всех полей
   _disabledStep = (attr) => {
+    console.log(attr)
     this._allSteps.forEach(item => {
-      if (item.getAttribute(this._setting.stepData) === attr) {
+      if (+item.getAttribute(this._setting.stepData) === +attr) {
         item.classList.remove(this._setting.stepZeroClass, this._setting.stepCrossClass, 'game__step_type_inactive')
         item.textContent = '';
       }
-
-      // переключаем активного игрока
-      this._toggleActivePlayer();
     })
   }
 
   _setEventListeners = () => {
     this._allSteps.forEach(step => step.addEventListener('click', () => {
       // при клике, проверяем атрибут поля соответсвует номеру активного игрока или нет,
-      // и содержит ли элемент атрибут для мобильного поля
-      if (+step.getAttribute('data-player') === this._activePlayer || step.hasAttribute('data-mobile')) {
+      if (+step.getAttribute('data-player') === this._activePlayer) {
+        const attr = step.getAttribute(this._setting.stepData);
+
+        this._disabledStep(attr);
+        this._setItem(attr);
+      }
+
+      // проверка содержит ли элемент атрибут для мобильного поля и активный игрок не 3
+      if (step.hasAttribute('data-mobile') && this._activePlayer !== 3) {
         const attr = step.getAttribute(this._setting.stepData);
 
         this._disabledStep(attr);
