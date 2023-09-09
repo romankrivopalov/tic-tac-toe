@@ -20,4 +20,6 @@ export const gameplaySetting = {
 export const scoreSetting = {
   roundSelector: '.score__round',
   roundActiveClass: 'score__round_type_active',
+  roundZeroClass: 'score__round_type_zero',
+  roundCrossClass: 'score__round_type_cross'
 }

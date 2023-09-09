@@ -9,7 +9,7 @@ class Gameplay {
     this._playerMobileTitleZero = document.querySelector('#mobile-player-zero');
     this._playerTitleCross = document.querySelector('#player-cross');
     this._playerMobileTitleCross = document.querySelector('#mobile-player-cross');
-    this._count = 0;
+    this._count = 0; // для отслеживания ничьи
     this._winCombo = [
       [0, 1, 2],
       [3, 4, 5],
