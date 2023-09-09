@@ -1,0 +1,66 @@
+.burger {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  margin: 0;
+  padding: 0;
+  width: 48px;
+  height: 48px;
+  font-size: 14px;
+  line-height: 48px;
+  background-color: var(--color-system-gray);
+  border-radius: 100%;
+  text-align: center;
+  cursor: pointer;
+  opacity: 1;
+  z-index: 50;
+  transition: opacity .1s ease-in-out;
+}
+
+.burger:hover {
+  opacity: .7;
+}
+
+.burger::after {
+  content: '';
+  position: absolute;
+  top: 33%;
+  left: 50%;
+  display: block;
+  height: 4px;
+  width: 24px;
+  background-color: var(--color-system-white);
+  transform: translateX(-50%);
+}
+
+.burger::before {
+  content: '';
+  position: absolute;
+  bottom: 33%;
+  left: 50%;
+  display: block;
+  height: 4px;
+  width: 24px;
+  background-color: var(--color-system-white);
+  transform: translateX(-50%);
+}
+
+@media screen and (min-width: 992px) {
+  .burger {
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+  }
+
+  .burger::after {
+    top: 36%;
+    left: 50%;
+    width: 32px;
+  }
+
+  .burger::before {
+    bottom: 36%;
+    left: 50%;
+    width: 32px;
+  }
+}

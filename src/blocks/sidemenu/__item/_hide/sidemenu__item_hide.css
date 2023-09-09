@@ -1,0 +1,9 @@
+.sidemenu__item_hide {
+  display: block;
+}
+
+@media screen and (min-width: 992px) {
+  .sidemenu__item_hide {
+    display: none;
+  }
+}

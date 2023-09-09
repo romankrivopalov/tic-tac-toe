@@ -1,21 +1,23 @@
 .score {
   position: absolute;
   top: 24px;
-  left: 50%;
+  left: 24px;
   margin: 0;
   padding: 8px;
   display: flex;
   gap: 8px;
   background-color: var(--color-system-gray);
   border-radius: 40px;
-  transform: translateX(-50%);
 }
 
 @media screen and (min-width: 992px) {
   .score {
+
     padding: 8px 16px;
     top: auto;
+    left: 50%;
     bottom: -120px;
     gap: 16px;
+    transform: translateX(-50%);
   }
 }

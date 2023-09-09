@@ -1,0 +1,26 @@
+.burger_open {
+  background-color: var(--color-system-blue);
+  transition: transform .2s ease-in-out;
+}
+
+.burger_open::after {
+  width: 26px;
+  transform: translateX(-13px) translateY(6px) rotate(45deg);
+}
+
+.burger_open::before {
+  width: 26px;
+  transform: translateX(-13px) translateY(-6px) rotate(-45deg);
+}
+
+@media screen and (min-width: 992px) {
+  .burger_open::after {
+    width: 36px;
+    transform: translateX(-18px) translateY(9px) rotate(45deg);
+  }
+
+  .burger_open::before {
+    width: 36px;
+    transform: translateX(-18px) translateY(-9px) rotate(-45deg);
+  }
+}

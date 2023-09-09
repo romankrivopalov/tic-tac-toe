@@ -12,6 +12,17 @@
 @import url('../blocks/icon/_size/icon_size_m.css');
 @import url('../blocks/icon/_size/icon_size_xl.css');
 
+@import url('../blocks/burger/burger.css');
+@import url('../blocks/burger/_open/burger_open.css');
+@import url('../blocks/sidemenu/sidemenu.css');
+@import url('../blocks/sidemenu/_active/sidemenu_active.css');
+@import url('../blocks/sidemenu/__container/sidemenu__container.css');
+@import url('../blocks/sidemenu/__container/_show/sidemenu__container_show.css');
+@import url('../blocks/sidemenu/__link/sidemenu__link.css');
+@import url('../blocks/sidemenu/__wrapper/sidemenu__wrapper.css');
+@import url('../blocks/sidemenu/__item/sidemenu__item.css');
+@import url('../blocks/sidemenu/__item/_hide/sidemenu__item_hide.css');
+
 @import url('../blocks/start/start.css');
 @import url('../blocks/start/_hide/start_hide.css');
 @import url('../blocks/start/__icons/start__icons.css');
