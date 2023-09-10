@@ -1,18 +1,29 @@
 class Score {
-  constructor(setting) {
+  constructor(setting, handleStartPause) {
     this._setting = setting;
     this._roundsElements = document.querySelectorAll(this._setting.roundSelector);
     this._activeRound = 0;
-    this.rounds = [null, null, null, null]; // для проверки победителя без дом дерева
     this._winner = null;
     this._textInfo = document.querySelector(this._setting.textInfoSelector);
+    this.rounds = [null, null, null, null]; // для проверки победителя без дом дерева
+    this._handleStartPause = handleStartPause;
   }
 
   _setWinner = () => {
-    this._textInfo.textContent = `winner ${this._winner === 1 ? 'player # 1' : 'player # 2'}`
+    this._handleStartPause({
+      message: `${this._winner === 1 ? 'player # 1' : 'player # 2'} won!`,
+    });
+    // this._pause.classList.add('pause_active');
+    // this._pauseInfo.textContent = `${this._winner === 1 ? 'player # 1' : 'player # 2'} won!`;
+
+    this.resetGame();
   }
 
   _checkWinner = () => {
+    // устана результата в localStorage, тк если
+    // вызван метод, значит была ничья или победа одного из игроков
+    localStorage.setItem('rounds', JSON.stringify(this.rounds));
+
     let playerZero = 0;
     let playerCross = 0;
 
@@ -20,8 +31,6 @@ class Score {
       if (round === 1) playerZero++;
       if (round === 2) playerCross++;
     })
-
-    localStorage.setItem('rounds', JSON.stringify(this.rounds));
 
     if (playerZero > 2) this._winner = 1;
     if (playerCross > 2) this._winner = 2;
@@ -50,7 +59,9 @@ class Score {
     this._checkWinner();
 
     if (this._winner) {
-      this._setWinner()
+      this._setWinner();
+
+      return this._winner;
     } else {
       this._textInfo.textContent = `Draw!`
 
@@ -61,6 +72,7 @@ class Score {
   }
 
   nextRound = (winnerLastRound) => {
+    this._round++
     // установка отметки о победителе в счётчик раундов
     if (winnerLastRound === 1) {
       this._roundsElements[this._activeRound].classList.add(this._setting.roundZeroClass);
@@ -76,7 +88,9 @@ class Score {
     this._checkWinner();
 
     if (this._winner) {
-      this._setWinner()
+      this._setWinner();
+
+      return this._winner;
     } else {
       this._activeRound++
 
