@@ -87,6 +87,7 @@ class Gameplay {
 
   // установить фигуру
   _setItem = (attr) => {
+    console.log(this._activePlayer)
     // добавить в массив data-step игрока
     this._allSteps[attr - 1] = this._activePlayer;
 

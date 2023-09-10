@@ -16,21 +16,21 @@ const gameplay = new Gameplay(
   score.setDraw,
   score.setInitialRounds,
 );
-const sidemenu = new Sidemenu(
-  all.sidemenuSetting,
+const start = new Start(
+  all.startSetting,
   gameplay.restartRound,
   score.resetGame
 );
-const start = new Start(
-  all.startSetting,
-  gameplay.startGameWithPlayer,
-  gameplay.startGameWithRobot,
+const sidemenu = new Sidemenu(
+  all.sidemenuSetting,
   gameplay.restartRound,
-  score.resetGame
+  score.resetGame,
+  start.closeGame
 );
 
 start.setEventListeners();
 sidemenu.setEventListeners();
+gameplay.startGameWithPlayer();
 
 burger.addEventListener('click', () => {
   if (burger.classList.contains(all.burgerActiveClass)) {

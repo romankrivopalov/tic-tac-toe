@@ -1,7 +1,5 @@
 class Start {
   constructor(setting,
-    handleStartGameWithPlayer,
-    handleStartGameWithRobot,
     handleResetRound,
     handleResetGame
   ) {
@@ -11,16 +9,20 @@ class Start {
     this._btnTwoPlayers = document.querySelector(this._setting.btnTwoPlayersSelector);
     this._btnVsRobot = document.querySelector(this._setting.btnVsRobotSelector);
     this._btnContinue = document.querySelector(this._setting.btnContinueSelector);
-    this._handleStartGameWithPlayer = handleStartGameWithPlayer;
-    this._handleStartGameWithRobot = handleStartGameWithRobot;
     this._handleResetRound = handleResetRound;
     this._handleResetGame = handleResetGame;
   }
 
-  _toggleClasses = () => {
+  _openGame = () => {
     this._startContainer.classList.add(this._setting.startContainerClassHide);
-
     this._gameContainer.classList.add(this._setting.gameContainerClassShow);
+  }
+
+  closeGame = () => {
+    this._checkSavedGame();
+
+    this._startContainer.classList.remove(this._setting.startContainerClassHide);
+    this._gameContainer.classList.remove(this._setting.gameContainerClassShow);
   }
 
   // проверка данных сохраненной игры в localStorage
@@ -29,35 +31,27 @@ class Start {
       this._btnContinue.classList.remove('button_hide');
 
       return true
-    }
+    } else {
+      this._btnContinue.classList.add('button_hide');
 
-    this._btnContinue.classList.add('button_hide');
+      return false
+    }
   }
 
   setEventListeners = () => {
-    const savedGame = this._checkSavedGame();
-
     this._btnTwoPlayers.addEventListener('click', () => {
-      if (savedGame) {
-        this._handleResetRound();
-        this._handleResetGame();
-      }
+      this._handleResetRound();
+      this._handleResetGame();
 
-      this._toggleClasses();
-
-      this._handleStartGameWithPlayer();
+      this._openGame();
     })
 
     this._btnVsRobot.addEventListener('click', () => {
-      this._handleStartGameWithRobot();
+
     })
 
     this._btnContinue.addEventListener('click', () => {
-      if (savedGame) {
-        this._toggleClasses();
-
-        this._handleStartGameWithPlayer();
-      }
+      this._openGame();
     })
   }
 }

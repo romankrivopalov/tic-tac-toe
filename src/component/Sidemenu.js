@@ -1,12 +1,14 @@
 class Sidemenu {
-  constructor(setting, handleResetRound, handleResetGame) {
+  constructor(setting, handleResetRound, handleResetGame, handleCloseGame) {
     this._setting = setting;
     this._sidemenu = document.querySelector(this._setting.sidemenuSelector);
     this._sidemenuContainer = document.querySelector(this._setting.sidemenuContainerSelector);
     this._handleEscClose = this._handleEscClose.bind(this);
+    this._btnHome = document.querySelector(this._setting.btnHometSelector);
     this._btnRestart = document.querySelector(this._setting.btnRestartSelector);
     this._handleResetRound = handleResetRound;
     this._handleResetGame = handleResetGame;
+    this._handleCloseGame = handleCloseGame;
   }
 
   _handleEscClose(event) {
@@ -21,6 +23,12 @@ class Sidemenu {
         this.close();
       }
     });
+
+    this._btnHome.addEventListener('click', () => {
+      this.close();
+
+      this._handleCloseGame();
+    })
 
     this._btnRestart.addEventListener('click', () => {
       this._handleResetRound();
