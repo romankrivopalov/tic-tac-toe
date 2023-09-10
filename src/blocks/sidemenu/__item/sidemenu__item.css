@@ -1,0 +1,8 @@
+.sidemenu__item {
+  cursor: pointer;
+  transition: color .1s ease-in-out;
+}
+
+.sidemenu__item:hover {
+  color: var(--color-system-blue);
+}

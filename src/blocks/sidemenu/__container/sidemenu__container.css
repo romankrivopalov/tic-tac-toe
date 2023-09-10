@@ -1,0 +1,14 @@
+.sidemenu__container {
+  box-sizing: border-box;
+  position: absolute;
+  margin: 0;
+  padding: 32px 40px;
+  top: -360px;
+  right: 0;
+  width: 100%;
+  color: var(--color-system-black);
+  background-color: var(--color-system-white);
+  border-radius: 0;
+  z-index: 40;
+  transition: top .5s ease-in-out;
+}

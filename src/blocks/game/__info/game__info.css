@@ -1,0 +1,5 @@
+.game__info {
+  grid-area: info;
+  align-self: center;
+  text-align: center;
+}

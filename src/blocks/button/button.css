@@ -1,0 +1,24 @@
+.button {
+  margin: 0;
+  padding: 16px 24px;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--color-system-white);
+  background-color: var(--color-system-gray);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: backgroundColor, .1s ease-in-out;
+}
+
+.button:nth-child(3) {
+  background-color: #219f08;
+}
+
+.button:nth-child(1):hover {
+  background-color: var(--color-system-blue);
+}
+
+.button:nth-child(2):hover {
+  background-color: var(--color-system-orange);
+}

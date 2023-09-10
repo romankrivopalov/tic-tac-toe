@@ -1,0 +1,16 @@
+.rules__inner {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  display: none;
+  margin: 0;
+  padding: 40px 32px;
+  width: 100%;
+  font-size: 16px;
+  line-height: 18px;
+  color: var(--color-system-black);
+  background-color: var(--color-system-white);
+  text-align: left;
+  border-radius: 44px;
+  z-index: 10;
+}

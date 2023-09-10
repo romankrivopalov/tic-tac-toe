@@ -1,0 +1,21 @@
+.score {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  margin: 0;
+  padding: 8px;
+  display: flex;
+  gap: 8px;
+  background-color: var(--color-system-gray);
+  border-radius: 40px;
+}
+
+@media screen and (min-width: 992px) {
+  .score {
+    grid-area: score;
+    position: static;
+    padding: 8px 16px;
+    width: auto;
+    gap: 16px;
+  }
+}

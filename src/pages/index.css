@@ -9,3 +9,56 @@
 @import url('../blocks/icon/icon.css');
 @import url('../blocks/icon/_type/icon_type_cross.css');
 @import url('../blocks/icon/_type/icon_type_zero.css');
+@import url('../blocks/icon/_type/icon_type_inactive.css');
+@import url('../blocks/icon/_size/icon_size_m.css');
+@import url('../blocks/icon/_size/icon_size_l.css');
+@import url('../blocks/icon/_size/icon_size_xl.css');
+
+@import url('../blocks/burger/burger.css');
+@import url('../blocks/burger/_open/burger_open.css');
+@import url('../blocks/sidemenu/sidemenu.css');
+@import url('../blocks/sidemenu/_active/sidemenu_active.css');
+@import url('../blocks/sidemenu/__container/sidemenu__container.css');
+@import url('../blocks/sidemenu/__container/_show/sidemenu__container_show.css');
+@import url('../blocks/sidemenu/__link/sidemenu__link.css');
+@import url('../blocks/sidemenu/__wrapper/sidemenu__wrapper.css');
+@import url('../blocks/sidemenu/__item/sidemenu__item.css');
+@import url('../blocks/sidemenu/__item/_hide/sidemenu__item_hide.css');
+
+@import url('../blocks/start/start.css');
+@import url('../blocks/start/_hide/start_hide.css');
+@import url('../blocks/start/__icons/start__icons.css');
+@import url('../blocks/start/__subtitle/start__subtitle.css');
+@import url('../blocks/start/__title/start__title.css');
+@import url('../blocks/start/__wrapper/start__wrapper.css');
+
+@import url('../blocks/button/button.css');
+@import url('../blocks/button/_hide/button_hide.css');
+
+@import url('../blocks/rules/rules.css');
+@import url('../blocks/rules/__label/rules__label.css');
+@import url('../blocks/rules/__inner/rules__inner.css');
+@import url('../blocks/rules/__title/rules__title.css');
+@import url('../blocks/rules/__text/rules__text.css');
+
+@import url('../blocks/game/game.css');
+@import url('../blocks/game/_show/game_show.css');
+@import url('../blocks/game/__container/game__container.css');
+@import url('../blocks/game/__info/game__info.css');
+@import url('../blocks/game/__filed/game__filed.css');
+@import url('../blocks/game/__title/game__title.css');
+@import url('../blocks/game/__title/_inactive/game__title_inactive.css');
+@import url('../blocks/game/__main/game__main.css');
+@import url('../blocks/game/__item/game__item.css');
+
+@import url('../blocks/score/score.css');
+@import url('../blocks/score/__round/score__round.css');
+@import url('../blocks/score/__round/_type/score__round_type_active.css');
+@import url('../blocks/score/__round/_type/score__round_type_zero.css');
+@import url('../blocks/score/__round/_type/score__round_type_cross.css');
+@import url('../blocks/score/__round/_type/score__round_type_draw.css');
+
+@import url('../blocks/pause/pause.css');
+@import url('../blocks/pause/_active/pause_active.css');
+@import url('../blocks/pause/__info/pause__info.css');
+@import url('../blocks/pause/__wrapper/pause__wrapper.css');

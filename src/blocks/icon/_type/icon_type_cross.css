@@ -1,4 +1,5 @@
 .icon_type_cross {
+  background-color: var(--color-system-black);
   -webkit-mask-image: url('../../../icons/icon-cross.svg');
   mask-image: url('../../../icons/icon-cross.svg');
   background-color: var(--color-system-orange);

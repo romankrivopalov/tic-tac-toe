@@ -1,0 +1,11 @@
+.icon_size_m {
+  width: 56px;
+  height: 56px;
+}
+
+@media screen and (min-width: 992px) {
+  .icon_size_m {
+    width: 72px;
+    height: 72px;
+  }
+}

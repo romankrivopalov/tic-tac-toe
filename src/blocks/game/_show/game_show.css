@@ -1,0 +1,5 @@
+.game_show {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

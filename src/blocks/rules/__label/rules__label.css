@@ -1,0 +1,22 @@
+.rules__label {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 80px;
+  height: 80px;
+  font-size: 14px;
+  line-height: 80px;
+  background-color: var(--color-system-gray);
+  border-radius: 100%;
+  text-align: center;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.rules__label:hover {
+  background-color: var(--color-system-black);
+}
+
+.rules__label:hover + .rules__inner {
+  display: block;
+}
