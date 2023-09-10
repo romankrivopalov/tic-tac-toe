@@ -22,6 +22,21 @@ class Score {
     return false;
   }
 
+  setDraw = () => {
+    this._roundsElements[this._activeRound].classList.add('score__round_type_draw');
+    this._rounds[this._activeRound] = 3;
+
+    this._checkWinner();
+
+    if (this._winner) {
+      console.log(`Winner ${this._winner}`)
+    } else {
+      this._activeRound++
+
+      this._roundsElements[this._activeRound].classList.add(this._setting.roundActiveClass);
+    }
+  }
+
   nextRound = (winnerLastRound) => {
     // установка отметки о победителе в счётчик раундов
     if (winnerLastRound === 1) {

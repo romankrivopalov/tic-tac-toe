@@ -10,7 +10,11 @@ import Sidemenu from '../component/Sidemenu';
 const burger = document.querySelector(all.burgerSelector);
 
 const score = new Score(all.scoreSetting);
-const gameplay = new Gameplay(all.gameplaySetting, score.nextRound);
+const gameplay = new Gameplay(
+  all.gameplaySetting,
+  score.nextRound,
+  score.setDraw
+);
 const start = new Start(
   all.startSetting,
   gameplay.startGameWithPlayer,

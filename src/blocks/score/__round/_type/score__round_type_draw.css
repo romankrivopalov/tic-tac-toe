@@ -1,0 +1,4 @@
+.score__round_type_draw {
+  color: var(--color-system-white);
+  background-color: var(--color-system-white);
+}

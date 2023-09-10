@@ -1,9 +1,0 @@
-.game__step_type_cross {
-  color: var(--color-system-white);
-  background-color: var(--color-system-orange);
-  cursor: pointer;
-}
-
-.game__step_type_cross:hover {
-  opacity: .8;
-}

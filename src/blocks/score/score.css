@@ -1,5 +1,5 @@
 .score {
-  position: absolute;
+  position: fixed;
   top: 24px;
   left: 24px;
   margin: 0;
@@ -12,11 +12,10 @@
 
 @media screen and (min-width: 992px) {
   .score {
-
     padding: 8px 16px;
     top: auto;
     left: 50%;
-    bottom: -120px;
+    bottom: 15%;
     gap: 16px;
     transform: translateX(-50%);
   }

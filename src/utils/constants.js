@@ -12,13 +12,11 @@ export const startSetting = {
 }
 
 export const gameplaySetting = {
-  gameStepSelector: '.game__step',
-  gameItemSelector: '.icon[data-item]',
-  stepClassZero: 'game__step_type_zero',
-  stepClassCross: 'game__step_type_cross',
-  stepData: 'data-step',
-  stepZeroClass: 'game__step_type_zero',
-  stepCrossClass: 'game__step_type_cross',
+  itemSelector: '.icon[data-item]',
+  itemAttr: 'data-item',
+  itemZeroClass: 'icon_type_zero',
+  itemCrossClass: 'icon_type_cross',
+  itemTypeIconClass: 'icon_size_m',
 }
 
 export const scoreSetting = {
