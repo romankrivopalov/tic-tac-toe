@@ -44,6 +44,7 @@ class Score {
   }
 
   setDraw = () => {
+    console.log(this._roundsElements, this._activeRound);
     this._roundsElements[this._activeRound].classList.add('score__round_type_draw');
     this.rounds[this._activeRound] = 3;
 
@@ -72,7 +73,7 @@ class Score {
       this.rounds[this._activeRound] = 2;
     }
 
-    // если метод вызыван, значит закончился раунд, и нужно проверить есть ли победитель
+    // если метод вызван, значит закончился раунд, и нужно проверить есть ли победитель
     this._checkWinner();
 
     if (this._winner) {
@@ -98,8 +99,8 @@ class Score {
 
         // если round не записан и активный раунд 0, устанавливаем его активным раундом
         if (!round && this._activeRound === 0) {
-          this._activeRound = this._roundsElements[i];
-          this._activeRound.classList.add(this._setting.roundActiveClass);
+          this._activeRound = i;
+          this._roundsElements[this._activeRound].classList.add(this._setting.roundActiveClass);
         };
       })
     }

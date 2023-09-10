@@ -116,6 +116,12 @@ class Gameplay {
         this._setNextRound();
       }
     }
+
+    localStorage.setItem('data', JSON.stringify({
+      steps: this._allSteps,
+      activePlayer: this._activePlayer,
+      count: this._count,
+    }));
   }
 
   _setEventListeners = () => {
@@ -147,13 +153,32 @@ class Gameplay {
   }
 
   startGameWithPlayer = () => {
+    // проверка данных о раундах в localStorage
     this._handleInitialRound();
 
-    this._activePlayer = 1;
+    // проверка данных о раунде в localStorage
+    if (localStorage.getItem('data')) {
+      const { steps, activePlayer, count } = JSON.parse(localStorage.getItem('data'));
 
-    this._setEventListeners();
+      this._allSteps = steps;
+      this._activePlayer = activePlayer;
+      this._count = count;
 
-    this._resetRound();
+      this._setEventListeners();
+
+      this._allSteps.forEach((step, i) => {
+        if (step === 1) this._allItems[i].classList.add(this._setting.itemTypeIconClass, this._setting.itemZeroClass);
+        if (step === 2) this._allItems[i].classList.add(this._setting.itemTypeIconClass, this._setting.itemCrossClass);
+      });
+
+      this._toggleActiveField();
+    } else {
+      this._activePlayer = 1;
+
+      this._setEventListeners();
+
+      this._resetRound();
+    }
   }
 
   startGameWithRobot = () => {
