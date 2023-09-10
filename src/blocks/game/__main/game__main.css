@@ -1,5 +1,7 @@
 .game__main {
-  margin: 64px 0 0 0;
+  grid-area: main;
+  align-self: center;
+  margin: 0 0 8px 0;
   padding: 0 16px;
   display: grid;
   justify-content: center;

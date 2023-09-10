@@ -9,7 +9,9 @@
 @import url('../blocks/icon/icon.css');
 @import url('../blocks/icon/_type/icon_type_cross.css');
 @import url('../blocks/icon/_type/icon_type_zero.css');
+@import url('../blocks/icon/_type/icon_type_inactive.css');
 @import url('../blocks/icon/_size/icon_size_m.css');
+@import url('../blocks/icon/_size/icon_size_l.css');
 @import url('../blocks/icon/_size/icon_size_xl.css');
 
 @import url('../blocks/burger/burger.css');
@@ -41,8 +43,10 @@
 @import url('../blocks/game/game.css');
 @import url('../blocks/game/_show/game_show.css');
 @import url('../blocks/game/__container/game__container.css');
+@import url('../blocks/game/__info/game__info.css');
 @import url('../blocks/game/__filed/game__filed.css');
 @import url('../blocks/game/__title/game__title.css');
+@import url('../blocks/game/__title/_inactive/game__title_inactive.css');
 @import url('../blocks/game/__main/game__main.css');
 @import url('../blocks/game/__item/game__item.css');
 

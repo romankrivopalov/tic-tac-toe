@@ -12,11 +12,10 @@
 
 @media screen and (min-width: 992px) {
   .score {
+    grid-area: score;
+    position: static;
     padding: 8px 16px;
-    top: auto;
-    left: 50%;
-    bottom: 15%;
+    width: auto;
     gap: 16px;
-    transform: translateX(-50%);
   }
 }

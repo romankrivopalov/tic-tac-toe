@@ -2,6 +2,10 @@ class Gameplay {
   constructor(setting, handleSetNextRound, handleSetDraw) {
     this._setting = setting;
     this._allItems = document.querySelectorAll(this._setting.itemSelector);
+    this._iconZero = document.querySelector('.icon[data-type="zero"]');
+    this._iconCross = document.querySelector('.icon[data-type="cross"]');
+    this._titlePlayerZero = document.querySelector(this._setting.playerTitleZeroSelector);
+    this._titlePlayerCross = document.querySelector(this._setting.playerTitleCrossSelector);
     this._allSteps = [null, null, null, null, null, null, null, null, null];
     this._activePlayer = 1;
     this._count = 0; // для отслеживания ничьи
@@ -32,11 +36,37 @@ class Gameplay {
         this._setting.itemTypeIconClass
       )
     });
+
+    this._toggleActiveField();
+  }
+
+  _toggleActiveField = () => {
+    // переключение активной иконки
+    if (this._activePlayer === 1) {
+      this._iconCross.classList.add('icon_type_inactive');
+      this._iconZero.classList.remove('icon_type_inactive');
+      this._titlePlayerCross.classList.add(this._setting.playerTitleInactiveClass);
+      this._titlePlayerZero.classList.remove(this._setting.playerTitleInactiveClass);
+    }
+
+    if (this._activePlayer === 2) {
+      this._iconCross.classList.remove('icon_type_inactive');
+      this._iconZero.classList.add('icon_type_inactive');
+      this._titlePlayerCross.classList.remove(this._setting.playerTitleInactiveClass);
+      this._titlePlayerZero.classList.add(this._setting.playerTitleInactiveClass);
+    }
   }
 
   // переключить активного игрока
-  _toggleActivePlayer = () => {
-    this._activePlayer = this._activePlayer === 1 ? 2 : 1;
+  _toggleActivePlayer = (lastWinner) => {
+    // если аргумента нет, просто изменяем значение
+    if (!lastWinner) {
+      this._activePlayer = this._activePlayer === 1 ? 2 : 1;
+    } else {
+      // если аргумент есть, обращаемся к последнему победителю
+      // и устанавливаем противоположное значение
+      this._activePlayer = this._lastWinner === 1 ? 2 : 1;
+    }
   }
 
   _checkWinner = () => {
@@ -59,6 +89,18 @@ class Gameplay {
     }
   }
 
+  _setNextRound = () => {
+    // записываем победителя
+    this._lastWinner = this._activePlayer;
+    // передаем его в метод компонента Score и переключаем активного игрока
+    this._handleSetNextRound(this._lastWinner);
+    this._toggleActivePlayer(this._lastWinner);
+
+    this._count = 0;
+
+    this._resetRound();
+  }
+
   // установить фигуру
   _setItem = (attr) => {
     // добавить в массив data-step и игрока
@@ -76,26 +118,16 @@ class Gameplay {
         this._count = 0;
         this._resetRound();
       } else {
-        this._lastWinner = this._activePlayer;
-        this._handleSetNextRound(this._activePlayer);
-
-        this._count = 0;
-
-        this._resetRound();
+        this._setNextRound();
       }
     } else {
       if (!this._checkWinner()) {
         this._count++
         // переключаем активного игрока
         this._toggleActivePlayer();
+        this._toggleActiveField();
       } else {
-        console.log(11111)
-        this._lastWinner = this._activePlayer;
-        this._handleSetNextRound(this._activePlayer);
-
-        this._count = 0;
-
-        this._resetRound();
+        this._setNextRound();
       }
     }
   }
@@ -110,7 +142,7 @@ class Gameplay {
   startGameWithPlayer = () => {
     this._setEventListeners();
 
-    this._resetRound;
+    this._resetRound();
   }
 
   startGameWithRobot = () => {

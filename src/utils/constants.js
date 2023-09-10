@@ -17,6 +17,9 @@ export const gameplaySetting = {
   itemZeroClass: 'icon_type_zero',
   itemCrossClass: 'icon_type_cross',
   itemTypeIconClass: 'icon_size_m',
+  playerTitleZeroSelector: '.game__title[data-type="zero"]',
+  playerTitleCrossSelector: '.game__title[data-type="cross"]',
+  playerTitleInactiveClass: 'game__title_inactive',
 }
 
 export const scoreSetting = {

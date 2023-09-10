@@ -1,0 +1,11 @@
+.icon_size_l {
+  width: 100px;
+  height: 100px;
+}
+
+@media screen and (min-width: 768px) {
+  .icon_size_l {
+    width: 160px;
+    height: 160px;
+  }
+}

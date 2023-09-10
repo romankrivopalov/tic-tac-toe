@@ -1,20 +1,36 @@
 .game__container {
   position: relative;
-  margin: 0 24px;
+  margin: 96px 16px 40px 16px;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas:
+          "info info"
+          "main main"
+          "zero cross";
+  gap: 16px;
   height: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .game__container {
+    margin: 56px 16px 0 16px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 56px 1Fr auto;
+    grid-template-areas:
+          "info info info"
+          "zero main cross"
+          ". score .";
+    column-gap: 40px;
+    row-gap: 40px;
+    height: auto;
+  }
 }
 
 @media screen and (min-width: 992px) {
   .game__container {
-    flex-direction: row;
-    justify-content: center;
-    gap: 48px;
-    height: auto;
+    margin: 0 16px;
+    row-gap: 72px;
   }
 }
