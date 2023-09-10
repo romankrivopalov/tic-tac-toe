@@ -7,16 +7,18 @@ class Score {
     this._textInfo = document.querySelector(this._setting.textInfoSelector);
     this.rounds = [null, null, null, null]; // для проверки победителя без дом дерева
     this._handleStartPause = handleStartPause;
+    this._count = 2;
   }
 
   _setWinner = () => {
-    this._handleStartPause({
-      message: `${this._winner === 1 ? 'player # 1' : 'player # 2'} won!`,
-    });
-    // this._pause.classList.add('pause_active');
-    // this._pauseInfo.textContent = `${this._winner === 1 ? 'player # 1' : 'player # 2'} won!`;
+    if (this._winner) {
+      this._handleStartPause({
+        message: `${this._winner === 1 ? 'player # 1' : 'player # 2'} won!`,
+      });
+    }
 
     this.resetGame();
+    this._handleRestartRound();
   }
 
   _checkWinner = () => {
@@ -24,16 +26,26 @@ class Score {
     // вызван метод, значит была ничья или победа одного из игроков
     localStorage.setItem('rounds', JSON.stringify(this.rounds));
 
-    let playerZero = 0;
-    let playerCross = 0;
+    let playerZero = null;
+    let playerCross = null;
 
     this.rounds.forEach(round => {
       if (round === 1) playerZero++;
       if (round === 2) playerCross++;
+      if (round === 3) this._count--;
     })
 
-    if (playerZero > 2) this._winner = 1;
-    if (playerCross > 2) this._winner = 2;
+    // последний раунд и три ничьи
+    if (this._activeRound < 3 && this._count > 0) {
+      if (playerZero > this._count) this._winner = 1;
+      if (playerCross > this._count) this._winner = 2;
+    }
+
+    // последний раунд и три ничьи
+    if (this._activeRound > 1 && this._count < 2) {
+      if (playerZero > 0) this._winner = 1;
+      if (playerCross > 0) this._winner = 2;
+    }
 
     return false;
   }
@@ -42,6 +54,7 @@ class Score {
     this._activeRound = 0;
     this.rounds = this.rounds.map(round => null);
     this._winner = null;
+    this._count = 2;
 
     this._roundsElements.forEach(round => {
       round.classList.remove('score__round_type_draw', this._setting.roundActiveClass, this._setting.roundZeroClass, this._setting.roundCrossClass);
@@ -53,21 +66,25 @@ class Score {
   }
 
   setDraw = () => {
-    this._roundsElements[this._activeRound].classList.add('score__round_type_draw');
-    this.rounds[this._activeRound] = 3;
-
-    this._checkWinner();
-
-    if (this._winner) {
-      this._setWinner();
-
-      return this._winner;
+    if (this._activeRound > 2) {
+      this._handleStartPause({
+        message: 'draw! try again!',
+      });
     } else {
-      this._textInfo.textContent = `Draw!`
+      this._roundsElements[this._activeRound].classList.add('score__round_type_draw');
+      this.rounds[this._activeRound] = 3;
 
-      this._activeRound++
+      this._checkWinner();
 
-      this._roundsElements[this._activeRound].classList.add(this._setting.roundActiveClass);
+      if (this._winner) {
+        this._setWinner();
+
+        return this._winner;
+      } else {
+        this._activeRound++
+
+        this._roundsElements[this._activeRound].classList.add(this._setting.roundActiveClass);
+      }
     }
   }
 
@@ -99,7 +116,9 @@ class Score {
   }
 
   // проверка сохраненных данных в localStorage
-  setInitialRounds = () => {
+  setInitialRounds = (HandleRestartRound) => {
+    this._handleRestartRound = HandleRestartRound;
+
     if (localStorage.getItem('rounds')) {
       this.rounds = JSON.parse(localStorage.getItem('rounds'));
 

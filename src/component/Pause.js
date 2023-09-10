@@ -5,15 +5,14 @@ class Pause {
     this._pauseInfo = this._pause.querySelector(this._setting.pauseInfoSelector);
     this._pauseBtnHome = this._pause.querySelector(this._setting.btnHomeSelector);
     this._pauseResetHome = this._pause.querySelector(this._setting.btnResetSelector);
-    console.log()
   }
 
   _breakPause = () => {
-    this._pause.classList.remove('pause_active');
+    this._pause.classList.remove(this._setting.pauseActiveClass);
   }
 
   startPause = ({ message }) => {
-    this._pause.classList.add('pause_active');
+    this._pause.classList.add(this._setting.pauseActiveClass);
 
     this._pauseInfo.textContent = message;
   }

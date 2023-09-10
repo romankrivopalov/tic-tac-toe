@@ -57,6 +57,7 @@ export const sidemenuSetting = {
 
 export const pauseSetting = {
   pauseSelector: '.pause',
+  pauseActiveClass: 'pause_active',
   pauseInfoSelector: '.pause__info',
   btnHomeSelector: '.button[data-type="home"]',
   btnResetSelector: '.button[data-type="restart"]',

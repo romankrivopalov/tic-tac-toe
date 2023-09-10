@@ -91,6 +91,9 @@ class Gameplay {
         // если ход последний и победителя нет, устанавливаем ничью
         this._handleSetDraw();
 
+        this._toggleActivePlayer();
+        this._toggleActiveField();
+
         this._count = 0;
         this._resetRound();
       } else {
@@ -144,15 +147,12 @@ class Gameplay {
 
   restartRound = () => {
     this._activePlayer = 1;
-
     localStorage.removeItem('data');
-
     this._resetRound();
   }
 
   startGameWithPlayer = () => {
-    // проверка данных о раундах в localStorage
-    this._handleInitialRound();
+    this._handleInitialRound(this.restartRound);
 
     // проверка данных о раунде в localStorage
     if (localStorage.getItem('data')) {
