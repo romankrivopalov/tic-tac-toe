@@ -35,4 +35,5 @@ export const sidemenuSetting = {
   sidemenuToggleClass: 'sidemenu_active',
   sidemenuContainerSelector: '.sidemenu__container',
   sidemenuContainerToggleClass: 'sidemenu__container_show',
+  btnRestartSelector: '.sidemenu__item[data-type="restart"]',
 }

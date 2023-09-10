@@ -20,7 +20,11 @@ const start = new Start(
   gameplay.startGameWithPlayer,
   gameplay.startGameWithRobot,
 );
-const sidemenu = new Sidemenu(all.sidemenuSetting);
+const sidemenu = new Sidemenu(
+  all.sidemenuSetting,
+  gameplay.resetRound,
+  score.resetGame
+);
 
 start.setEventListeners();
 sidemenu.setEventListeners();

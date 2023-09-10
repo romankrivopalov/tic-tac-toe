@@ -24,22 +24,6 @@ class Gameplay {
     this._lastWinner = 0;
   }
 
-  _resetRound = () => {
-    this._count = 0;
-
-    this._allSteps = this._allSteps.map(step => null);
-
-    this._allItems.forEach(step => {
-      step.classList.remove(
-        this._setting.itemZeroClass,
-        this._setting.itemCrossClass,
-        this._setting.itemTypeIconClass
-      )
-    });
-
-    this._toggleActiveField();
-  }
-
   _toggleActiveField = () => {
     // переключение активной иконки
     if (this._activePlayer === 1) {
@@ -98,7 +82,7 @@ class Gameplay {
 
     this._count = 0;
 
-    this._resetRound();
+    this.resetRound();
   }
 
   // установить фигуру
@@ -116,7 +100,7 @@ class Gameplay {
         this._handleSetDraw();
 
         this._count = 0;
-        this._resetRound();
+        this.resetRound();
       } else {
         this._setNextRound();
       }
@@ -139,10 +123,27 @@ class Gameplay {
     }))
   }
 
+  resetRound = () => {
+    this._count = 0;
+    this._activePlayer = 1;
+
+    this._allSteps = this._allSteps.map(step => null);
+
+    this._allItems.forEach(step => {
+      step.classList.remove(
+        this._setting.itemZeroClass,
+        this._setting.itemCrossClass,
+        this._setting.itemTypeIconClass
+      )
+    });
+
+    this._toggleActiveField();
+  }
+
   startGameWithPlayer = () => {
     this._setEventListeners();
 
-    this._resetRound();
+    this.resetRound();
   }
 
   startGameWithRobot = () => {

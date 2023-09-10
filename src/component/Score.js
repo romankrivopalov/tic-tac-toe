@@ -22,6 +22,18 @@ class Score {
     return false;
   }
 
+  resetGame = () => {
+    this._activeRound = 0;
+    this._rounds = this._rounds.map(round => null);
+    this._winner = null;
+
+    this._roundsElements.forEach(round => {
+      round.classList.remove('score__round_type_draw', this._setting.roundActiveClass, this._setting.roundZeroClass, this._setting.roundCrossClass);
+    });
+
+    this._roundsElements[0].classList.add(this._setting.roundActiveClass);
+  }
+
   setDraw = () => {
     this._roundsElements[this._activeRound].classList.add('score__round_type_draw');
     this._rounds[this._activeRound] = 3;
