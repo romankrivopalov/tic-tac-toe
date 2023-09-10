@@ -15,12 +15,26 @@ export const startSetting = {
 export const gameplaySetting = {
   itemSelector: '.icon[data-item]',
   itemAttr: 'data-item',
+  iconZeroSelector: '.icon[data-type="zero"]',
+  iconCrossSelector: '.icon[data-type="cross"]',
   itemZeroClass: 'icon_type_zero',
   itemCrossClass: 'icon_type_cross',
+  itemInactiveClass: 'icon_type_inactive',
   itemTypeIconClass: 'icon_size_m',
   playerTitleZeroSelector: '.game__title[data-type="zero"]',
   playerTitleCrossSelector: '.game__title[data-type="cross"]',
   playerTitleInactiveClass: 'game__title_inactive',
+  allSteps: [null, null, null, null, null, null, null, null, null],
+  winCombo: [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ],
 }
 
 export const scoreSetting = {

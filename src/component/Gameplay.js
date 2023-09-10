@@ -2,23 +2,14 @@ class Gameplay {
   constructor(setting, handleSetNextRound, handleSetDraw, handleInitialRound) {
     this._setting = setting;
     this._allItems = document.querySelectorAll(this._setting.itemSelector);
-    this._iconZero = document.querySelector('.icon[data-type="zero"]');
-    this._iconCross = document.querySelector('.icon[data-type="cross"]');
+    this._iconZero = document.querySelector(this._setting.iconZeroSelector);
+    this._iconCross = document.querySelector(this._setting.iconCrossSelector);
     this._titlePlayerZero = document.querySelector(this._setting.playerTitleZeroSelector);
     this._titlePlayerCross = document.querySelector(this._setting.playerTitleCrossSelector);
-    this._allSteps = [null, null, null, null, null, null, null, null, null];
+    this._allSteps = this._setting.allSteps;
     this._activePlayer = 1;
     this._count = 0; // для отслеживания ничьи
-    this._winCombo = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6],
-    ];
+    this._winCombo = this._setting.winCombo;
     this._handleSetNextRound = handleSetNextRound;
     this._handleSetDraw = handleSetDraw;
     this._handleInitialRound = handleInitialRound;
@@ -28,15 +19,15 @@ class Gameplay {
   _toggleActiveField = () => {
     // переключение активной иконки
     if (this._activePlayer === 1) {
-      this._iconCross.classList.add('icon_type_inactive');
-      this._iconZero.classList.remove('icon_type_inactive');
+      this._iconCross.classList.add(this._setting.itemInactiveClass);
+      this._iconZero.classList.remove(this._setting.itemInactiveClass);
       this._titlePlayerCross.classList.add(this._setting.playerTitleInactiveClass);
       this._titlePlayerZero.classList.remove(this._setting.playerTitleInactiveClass);
     }
 
     if (this._activePlayer === 2) {
-      this._iconCross.classList.remove('icon_type_inactive');
-      this._iconZero.classList.add('icon_type_inactive');
+      this._iconCross.classList.remove(this._setting.itemInactiveClass);
+      this._iconZero.classList.add(this._setting.itemInactiveClass);
       this._titlePlayerCross.classList.remove(this._setting.playerTitleInactiveClass);
       this._titlePlayerZero.classList.add(this._setting.playerTitleInactiveClass);
     }
@@ -87,7 +78,6 @@ class Gameplay {
 
   // установить фигуру
   _setItem = (attr) => {
-    console.log(this._activePlayer)
     // добавить в массив data-step игрока
     this._allSteps[attr - 1] = this._activePlayer;
 
