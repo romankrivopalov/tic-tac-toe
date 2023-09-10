@@ -25,6 +25,8 @@ class Sidemenu {
     this._btnRestart.addEventListener('click', () => {
       this._handleResetRound();
       this._handleResetGame();
+
+      this.close();
     })
   }
 
