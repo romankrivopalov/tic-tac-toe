@@ -5,6 +5,11 @@ class Score {
     this._activeRound = 0;
     this._rounds = [null, null, null, null]; // для проверки победителя без дом дерева
     this._winner = null;
+    this._textInfo = document.querySelector(this._setting.textInfoSelector);
+  }
+
+  _setWinner = () => {
+    this._textInfo.textContent = `winner ${this._winner === 1 ? 'player # 1' : 'player # 2'}`
   }
 
   _checkWinner = () => {
@@ -41,8 +46,10 @@ class Score {
     this._checkWinner();
 
     if (this._winner) {
-      console.log(`Winner ${this._winner}`)
+      this._setWinner()
     } else {
+      this._textInfo.textContent = `Draw!`
+
       this._activeRound++
 
       this._roundsElements[this._activeRound].classList.add(this._setting.roundActiveClass);
@@ -65,7 +72,7 @@ class Score {
     this._checkWinner();
 
     if (this._winner) {
-      console.log(`Winner ${this._winner}`)
+      this._setWinner()
     } else {
       this._activeRound++
 

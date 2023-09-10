@@ -26,7 +26,8 @@ export const scoreSetting = {
   roundSelector: '.score__round',
   roundActiveClass: 'score__round_type_active',
   roundZeroClass: 'score__round_type_zero',
-  roundCrossClass: 'score__round_type_cross'
+  roundCrossClass: 'score__round_type_cross',
+  textInfoSelector: '.game__info',
 }
 
 export const sidemenuSetting = {

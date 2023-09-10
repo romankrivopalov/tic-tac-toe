@@ -22,7 +22,7 @@ const start = new Start(
 );
 const sidemenu = new Sidemenu(
   all.sidemenuSetting,
-  gameplay.resetRound,
+  gameplay.restartRound,
   score.resetGame
 );
 

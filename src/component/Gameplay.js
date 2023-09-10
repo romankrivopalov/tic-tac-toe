@@ -42,9 +42,9 @@ class Gameplay {
   }
 
   // переключить активного игрока
-  _toggleActivePlayer = (lastWinner) => {
+  _toggleActivePlayer = (winner) => {
     // если аргумента нет, просто изменяем значение
-    if (!lastWinner) {
+    if (!winner) {
       this._activePlayer = this._activePlayer === 1 ? 2 : 1;
     } else {
       // если аргумент есть, обращаемся к последнему победителю
@@ -77,12 +77,11 @@ class Gameplay {
     // записываем победителя
     this._lastWinner = this._activePlayer;
     // передаем его в метод компонента Score и переключаем активного игрока
+    this._toggleActivePlayer(this._activePlayer);
     this._handleSetNextRound(this._lastWinner);
-    this._toggleActivePlayer(this._lastWinner);
 
     this._count = 0;
-
-    this.resetRound();
+    this._resetRound();
   }
 
   // установить фигуру
@@ -94,18 +93,20 @@ class Gameplay {
       ? this._allItems[attr - 1].classList.add(this._setting.itemCrossClass, this._setting.itemTypeIconClass)
       : this._allItems[attr - 1].classList.add(this._setting.itemZeroClass, this._setting.itemTypeIconClass)
 
+    // проверка на последний ход
     if (this._count >= 8) {
       if (!this._checkWinner()) {
-        // если девятый последний и победителя нет, устанавливаем ничью
+        // если ход последний и победителя нет, устанавливаем ничью
         this._handleSetDraw();
 
         this._count = 0;
-        this.resetRound();
+        this._resetRound();
       } else {
         this._setNextRound();
       }
     } else {
       if (!this._checkWinner()) {
+        // если ход не последний, увеличиваем счётчик
         this._count++
         // переключаем активного игрока
         this._toggleActivePlayer();
@@ -118,14 +119,12 @@ class Gameplay {
 
   _setEventListeners = () => {
     this._allItems.forEach(step => step.addEventListener('click', () => {
-
       this._setItem(+step.getAttribute(this._setting.itemAttr));
     }))
   }
 
-  resetRound = () => {
+  _resetRound = () => {
     this._count = 0;
-    this._activePlayer = 1;
 
     this._allSteps = this._allSteps.map(step => null);
 
@@ -140,10 +139,18 @@ class Gameplay {
     this._toggleActiveField();
   }
 
+  restartRound = () => {
+    this._activePlayer = 1;
+
+    this._resetRound();
+  }
+
   startGameWithPlayer = () => {
+    this._activePlayer = 1;
+
     this._setEventListeners();
 
-    this.resetRound();
+    this._resetRound();
   }
 
   startGameWithRobot = () => {
