@@ -50,4 +50,6 @@ burger.addEventListener('click', () => {
   } else {
     sidemenu.open(burger);
   }
-})
+});
+
+start.checkSavedGame;

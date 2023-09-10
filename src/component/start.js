@@ -19,14 +19,14 @@ class Start {
   }
 
   closeGame = () => {
-    this._checkSavedGame();
+    this.checkSavedGame();
 
     this._startContainer.classList.remove(this._setting.startContainerClassHide);
     this._gameContainer.classList.remove(this._setting.gameContainerClassShow);
   }
 
   // проверка данных сохраненной игры в localStorage
-  _checkSavedGame = () => {
+  checkSavedGame = () => {
     if (localStorage.getItem('data') || localStorage.getItem('rounds')) {
       this._btnContinue.classList.remove('button_hide');
 
