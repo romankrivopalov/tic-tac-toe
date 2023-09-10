@@ -17,7 +17,7 @@
 .sidemenu__container{background-color:var(--color-system-white);border-radius:0;box-sizing:border-box;color:var(--color-system-black);margin:0;padding:32px 40px;position:absolute;right:0;top:-360px;transition:top .5s ease-in-out;width:100%;z-index:40}
 .sidemenu__container_show{top:0}
 .sidemenu__link{color:var(--color-system-gray);display:inline-block;font-size:16px;line-height:24px;margin:0;opacity:1;padding:0 0 0 40px;position:relative;text-decoration:none;transition:opacity .1s ease-in-out}.sidemenu__link:hover{opacity:.6}.sidemenu__link:before{background-image:url(images/icon-github..svg);background-position:50%;background-repeat:no-repeat;background-size:cover;content:"";height:24px;left:0;position:absolute;top:0;width:24px}
-.sidemenu__wrapper{display:flex;flex-direction:column;gap:8px;margin:0;padding:0 0 24px}@media screen and (min-width:768px){.sidemenu__wrapper{flex-direction:row;gap:24px}}
+.sidemenu__wrapper{display:flex;flex-direction:column;gap:8px;margin:0;padding:0 120px 24px 0}@media screen and (min-width:768px){.sidemenu__wrapper{flex-direction:row;gap:24px}}
 .sidemenu__item{cursor:pointer;transition:color .1s ease-in-out}.sidemenu__item:hover{color:var(--color-system-blue)}
 .sidemenu__item_hide{display:block}@media screen and (min-width:992px){.sidemenu__item_hide{display:none}}
 .start{align-items:center;display:flex;flex-direction:column;height:100%;justify-content:center;position:relative}
