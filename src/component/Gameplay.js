@@ -1,5 +1,5 @@
 class Gameplay {
-  constructor(setting, handleSetNextRound, handleSetDraw) {
+  constructor(setting, handleSetNextRound, handleSetDraw, handleInitialRound) {
     this._setting = setting;
     this._allItems = document.querySelectorAll(this._setting.itemSelector);
     this._iconZero = document.querySelector('.icon[data-type="zero"]');
@@ -21,6 +21,7 @@ class Gameplay {
     ];
     this._handleSetNextRound = handleSetNextRound;
     this._handleSetDraw = handleSetDraw;
+    this._handleInitialRound = handleInitialRound;
     this._lastWinner = 0;
   }
 
@@ -86,7 +87,7 @@ class Gameplay {
 
   // установить фигуру
   _setItem = (attr) => {
-    // добавить в массив data-step и игрока
+    // добавить в массив data-step игрока
     this._allSteps[attr - 1] = this._activePlayer;
 
     this._activePlayer === 2
@@ -146,6 +147,8 @@ class Gameplay {
   }
 
   startGameWithPlayer = () => {
+    this._handleInitialRound();
+
     this._activePlayer = 1;
 
     this._setEventListeners();

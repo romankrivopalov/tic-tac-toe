@@ -13,7 +13,8 @@ const score = new Score(all.scoreSetting);
 const gameplay = new Gameplay(
   all.gameplaySetting,
   score.nextRound,
-  score.setDraw
+  score.setDraw,
+  score.setInitialRounds,
 );
 const start = new Start(
   all.startSetting,
