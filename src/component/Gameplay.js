@@ -117,7 +117,12 @@ class Gameplay {
 
   _setEventListeners = () => {
     this._allItems.forEach(step => step.addEventListener('click', () => {
-      this._setItem(+step.getAttribute(this._setting.itemAttr));
+      if (
+        !step.classList.contains(this._setting.itemCrossClass) &&
+        !step.classList.contains(this._setting.itemZeroClass)
+      ) {
+        this._setItem(+step.getAttribute(this._setting.itemAttr));
+      }
     }))
   }
 
