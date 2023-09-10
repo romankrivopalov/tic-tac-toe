@@ -9,6 +9,7 @@ export const startSetting = {
   gameContainerClassShow: 'game_show',
   btnTwoPlayersSelector: '.button[data-type="btn-two-players"]',
   btnVsRobotSelector: '.button[data-type="btn-vs-robot"]',
+  btnContinueSelector: '.button[data-type="btn-continue"]',
 }
 
 export const gameplaySetting = {

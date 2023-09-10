@@ -11,10 +11,14 @@
   transition: backgroundColor, .1s ease-in-out;
 }
 
-.button:first-child:hover {
+.button:nth-child(3) {
+  background-color: #219f08;
+}
+
+.button:nth-child(1):hover {
   background-color: var(--color-system-blue);
 }
 
-.button:last-child:hover {
+.button:nth-child(2):hover {
   background-color: var(--color-system-orange);
 }

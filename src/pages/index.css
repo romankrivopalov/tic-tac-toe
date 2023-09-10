@@ -33,6 +33,7 @@
 @import url('../blocks/start/__wrapper/start__wrapper.css');
 
 @import url('../blocks/button/button.css');
+@import url('../blocks/button/_hide/button_hide.css');
 
 @import url('../blocks/rules/rules.css');
 @import url('../blocks/rules/__label/rules__label.css');

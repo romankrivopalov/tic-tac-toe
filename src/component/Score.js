@@ -38,13 +38,12 @@ class Score {
       round.classList.remove('score__round_type_draw', this._setting.roundActiveClass, this._setting.roundZeroClass, this._setting.roundCrossClass);
     });
 
-    localStorage.setItem('rounds', JSON.stringify(this.rounds));
+    localStorage.removeItem('rounds');
 
     this._roundsElements[0].classList.add(this._setting.roundActiveClass);
   }
 
   setDraw = () => {
-    console.log(this._roundsElements, this._activeRound);
     this._roundsElements[this._activeRound].classList.add('score__round_type_draw');
     this.rounds[this._activeRound] = 3;
 

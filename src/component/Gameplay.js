@@ -149,6 +149,8 @@ class Gameplay {
   restartRound = () => {
     this._activePlayer = 1;
 
+    localStorage.removeItem('data');
+
     this._resetRound();
   }
 
