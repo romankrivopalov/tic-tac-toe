@@ -52,4 +52,4 @@ burger.addEventListener('click', () => {
   }
 });
 
-start.checkSavedGame;
+start.checkSavedGame();
