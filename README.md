@@ -1,5 +1,6 @@
 # **Tic-Tac-Toe**
 > web game
+
 ![preview](https://github.com/romankrivopalov/tic-tac-toe/blob/main/src/images/preview.png?raw=true)
 
 > Проект выполнен в рамках прохождения стажировки в компании Wildberries. Самостоятельная реализация UI/UX для каждого мини-проекта, под соответствующее задание.
